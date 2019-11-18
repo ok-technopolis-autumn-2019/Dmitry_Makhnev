@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+
+<body>
+
+
+<div class="todos">
+
+  <div class="todos-add">
+    <form method="post" action="/" id="todos-add-form">
+      <input
+        id="new-todo-input"
+        type="text"
+        placeholder="" />
+      <button
+        type="submit"
+        id="add-new-todo-button"
+        aria-label="Add new todo"
+      >
+        +
+      </button>
+    </form>
+  </div>
+
+  <div
+    class="todos-list"
+    id="todos-list"
+  ></div>
+
+  <div class="todos-actions">
+    <div class="filter">
+      <button
+        id="todos-filter-all"
+        aria-label="Todos filter: Show all"
+      >
+        All
+      </button>
+      <button
+          id="todos-filter-not-ready"
+          aria-label="Todos filter: Show not ready"
+      >
+        Not Ready
+      </button>
+      <button
+          id="todos-filter-ready"
+          aria-label="Todos filter: Show ready"
+      >
+        Ready
+      </button>
+    </div>
+
+    <button
+      id="todos-clean-all"
+      aria-label="Clean all todos"
+    >
+      Clean all
+    </button>
+  </div>
+</div>
+
+</body>
+</html>
