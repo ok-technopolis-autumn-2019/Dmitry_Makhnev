@@ -12,11 +12,11 @@
 <div class="todos">
 
   <div class="todos-add">
-    <form method="post" action="/" id="todos-add-form">
+    <form method="post" action="/" id="todos-add-form" autocomplete="off">
       <input
         id="new-todo-input"
         type="text"
-        placeholder="" />
+        placeholder="Add new todo" />
       <button
         type="submit"
         id="add-new-todo-button"
@@ -33,6 +33,11 @@
   ></div>
 
   <div class="todos-actions">
+
+    <div class="counter" id="todos-counter">
+      0/0
+    </div>
+
     <div class="filter">
       <button
         id="todos-filter-all"

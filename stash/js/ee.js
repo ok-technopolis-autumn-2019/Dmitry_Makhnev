@@ -56,7 +56,7 @@ function clearEvent(emitter) {
  * @constructor
  * @public
  */
-function EventEmitter() {
+export function EventEmitter() {
   this._event = undefined;
 }
 
@@ -232,13 +232,3 @@ EventEmitter.prototype.addListener = EventEmitter.prototype.on;
 // Allow `EventEmitter` to be imported as module namespace.
 //
 EventEmitter.EventEmitter = EventEmitter;
-
-
-const ee = new EventEmitter();
-
-ee.addListener(() => {console.log('1');});
-
-ee.emit();
-
-
-
