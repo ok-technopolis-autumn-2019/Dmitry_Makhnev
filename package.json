@@ -17,5 +17,9 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "mobx": "^5.15.0",
+    "object-observer": "^2.5.0"
   }
 }

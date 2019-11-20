@@ -1,45 +1,27 @@
 import { renderStringToHTML } from '../helpers/renderStringToHTML';
-import { EventEmitter } from '../../../stash/js/ee';
+import { removeTodoItemAction } from '../actions/removeTodoItem.action';
+import { changeTodoItemDoneStatusAction } from '../actions/changeTodoItemDoneStatus.action';
 
 
 export class TodosItem {
 
   constructor(itemData) {
+    this._itemData = itemData;
     this.root = this._renderDom(itemData);
     this.root.querySelector('.todo-item_checked')
       .addEventListener('change', this._mangeReadyArea.bind(this));
     this.root.querySelector('.todo-item_delete')
       .addEventListener('click', this._deleteItem.bind(this));
-    this.onDelete = new EventEmitter();
-    this.isShowed = true;
   }
 
   _mangeReadyArea(e) {
     const checkbox = e.target;
-    checkbox.setAttribute(
-      'aria-label',
-      checkbox.checked
-        ? 'Mark todo as unready'
-        : 'Mark todo as ready',
-    );
+    const isDone = checkbox.checked;
+    changeTodoItemDoneStatusAction(this._itemData.id, isDone);
   }
 
   _deleteItem() {
-    this.onDelete.emit(this);
-  }
-
-  show() {
-    this.isShowed = true;
-    this.root.style.display = 'flex';
-  }
-
-  hide() {
-    this.isShowed = false;
-    this.root.style.display = 'none';
-  }
-
-  getReadyStatus() {
-    return this.root.querySelector('.todo-item_checked').checked;
+    removeTodoItemAction(this._itemData.id);
   }
 
   _renderDom(itemData) {
@@ -47,7 +29,8 @@ export class TodosItem {
       <input
         type="checkbox"
         class="todo-item_checked"
-        aria-label="Mark todo as ready" />
+        ${itemData.isDone ? 'checked=""' : ''}
+        aria-label="Mark todo as ${itemData.isDone ? 'unready' : 'ready'}" />
       <div
         class="todo-item_body"
         contenteditable="true"
