@@ -1,18 +1,10 @@
 
-import { TodosAdd } from './components/TodosAdd';
-import { TodosList } from './components/TodosList';
-import { TodosActions } from './components/TodosActions';
-import { todosModel } from './models/todosModel';
+import React from 'react';
+import { render } from 'react-dom';
+import { App } from './components/App.component';
 
-
-window.addEventListener(
-  'DOMContentLoaded',
-  function () {
-
-    new TodosAdd();
-    new TodosList(todosModel);
-    new TodosActions(todosModel);
-
-  },
+render(
+  <App />,
+  document.getElementById('app'),
 );
 
