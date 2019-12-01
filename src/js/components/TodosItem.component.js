@@ -5,25 +5,18 @@ import { removeTodoItemAction } from '../actions/removeTodoItem.action';
 
 export class TodosItemComponent extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.onDelete = this.onDelete.bind(this);
-    this.onDoneChanged = this.onDoneChanged.bind(this);
-  }
-
-  onDoneChanged(e) {
+  onDoneChanged = e => {
     const checkbox = e.target;
     const isDone = checkbox.checked;
     changeTodoItemDoneStatusAction(
       this.props.itemData.id,
       isDone,
     );
-  }
+  };
 
-  onDelete() {
+  onDelete = () => {
     removeTodoItemAction(this.props.itemData.id);
-  }
+  };
 
   render() {
     const itemData = this.props.itemData;

@@ -3,19 +3,11 @@ import React, { Component } from 'react';
 
 export class TodosAddComponent extends Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    todoText: '',
+  };
 
-    this.state = {
-      todoText: '',
-    };
-
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onInput = this.onInput.bind(this);
-
-  }
-
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     const currentTodoText = this.state.todoText;
@@ -28,15 +20,15 @@ export class TodosAddComponent extends Component {
       text: currentTodoText,
     });
 
-  }
+  };
 
-  onInput(e) {
+  onInput = e => {
     const inputValue = e.target.value;
 
     this.setState({
       todoText: inputValue,
     });
-  }
+  };
 
   render() {
 

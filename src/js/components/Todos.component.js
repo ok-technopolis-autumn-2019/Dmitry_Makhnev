@@ -9,16 +9,9 @@ import { TodosActionsComponent } from './TodosActions.component';
 
 class TodosComponent_ extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.onAdd = this.onAdd.bind(this);
-  }
-
-
-  onAdd(value) {
+  onAdd = value => {
     addTodoAction(value);
-  }
+  };
 
   render() {
 
