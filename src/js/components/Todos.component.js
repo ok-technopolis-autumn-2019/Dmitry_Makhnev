@@ -7,7 +7,8 @@ import { todosModel } from '../models/todosModel';
 import { TodosActionsComponent } from './TodosActions.component';
 
 
-class TodosComponent_ extends Component {
+@observer
+export class TodosComponent extends Component {
 
   onAdd = value => {
     addTodoAction(value);
@@ -28,5 +29,3 @@ class TodosComponent_ extends Component {
   }
 
 }
-
-export const TodosComponent = observer(TodosComponent_);
