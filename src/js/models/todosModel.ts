@@ -1,12 +1,22 @@
-import { observable } from 'mobx';
+import { computed, observable } from 'mobx';
 import { TodoItemsFilter } from './TodoItemsFilter';
 
 
-export const todosModel = observable({
-  filter: TodoItemsFilter.ALL,
+export interface TodoItemModel {
+  id: number;
+  text: string;
+  isDone: boolean;
+}
 
-  items: [],
+export class TodosModel {
 
+  @observable
+  filter: TodoItemsFilter = TodoItemsFilter.ALL;
+
+  @observable
+  items: TodoItemModel[] = [];
+
+  @computed
   get filteredItems() {
     return this.items
       .filter(item => {
@@ -20,5 +30,8 @@ export const todosModel = observable({
         }
       });
   }
-});
+}
+
+
+export const todosModel = new TodosModel();
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TodosAddComponent } from './TodosAdd.component';
-import { addTodoAction } from '../actions/addTodo.action';
+import { addTodoAction, TodoItemAddingData } from '../actions/addTodo.action';
 import { TodosListComponent } from './TodosList.component';
 import { observer } from 'mobx-react';
 import { todosModel } from '../models/todosModel';
@@ -10,7 +10,7 @@ import { TodosActionsComponent } from './TodosActions.component';
 @observer
 export class TodosComponent extends Component {
 
-  onAdd = value => {
+  onAdd = (value: TodoItemAddingData) => {
     addTodoAction(value);
   };
 

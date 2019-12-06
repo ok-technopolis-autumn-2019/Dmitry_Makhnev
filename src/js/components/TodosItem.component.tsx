@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { changeTodoItemDoneStatusAction } from '../actions/changeTodoItemDoneStatus.action';
 import { removeTodoItemAction } from '../actions/removeTodoItem.action';
+import { TodoItemModel } from '../models/todosModel';
 
 
-export class TodosItemComponent extends Component {
+export class TodosItemComponent extends Component<{
+  itemData: TodoItemModel,
+}> {
 
-  onDoneChanged = e => {
-    const checkbox = e.target;
+  onDoneChanged = (e: React.FormEvent) => {
+    const checkbox = e.target as HTMLInputElement;
     const isDone = checkbox.checked;
     changeTodoItemDoneStatusAction(
       this.props.itemData.id,

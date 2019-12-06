@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import { TodoItemAddingData } from '../actions/addTodo.action';
 
 
-export class TodosAddComponent extends Component {
+interface TodosAddComponentState {
+  todoText?: string;
+}
 
-  state = {
+
+export class TodosAddComponent extends Component<
+  {
+    addButtonText: string;
+    onNewTodo: (data: TodoItemAddingData) => void;
+  },
+  TodosAddComponentState
+> {
+
+  state: TodosAddComponentState  = {
     todoText: '',
   };
 
-  onSubmit = e => {
+  onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const currentTodoText = this.state.todoText;
@@ -22,8 +34,8 @@ export class TodosAddComponent extends Component {
 
   };
 
-  onInput = e => {
-    const inputValue = e.target.value;
+  onInput = (e: React.FormEvent) => {
+    const inputValue = (e.target as HTMLInputElement).value;
 
     this.setState({
       todoText: inputValue,

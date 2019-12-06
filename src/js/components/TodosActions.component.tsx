@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TodoItemsFilter } from '../models/TodoItemsFilter';
 import { setTodosFilterAction } from '../actions/setTodosFilter.action';
 import { cleanAllTodosAction } from '../actions/cleanAllTodos.action';
-
+import { TodoItemModel } from '../models/todosModel';
 
 const theBestTexts = {
   [TodoItemsFilter.ALL]: {
@@ -19,7 +19,10 @@ const theBestTexts = {
   },
 };
 
-export class TodosActionsComponent extends Component {
+export class TodosActionsComponent extends Component<{
+  items: TodoItemModel[];
+  filteredItems: TodoItemModel[];
+}> {
 
   render() {
     const {

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { TodosItemComponent } from './TodosItem.component';
+import { TodoItemModel } from '../models/todosModel';
 
 
-export class TodosListComponent extends Component {
+interface TodosListComponentProps {
+  items: Array<TodoItemModel>,
+}
+
+
+export class TodosListComponent extends Component<TodosListComponentProps> {
 
   render() {
     return <div className="todos-list">

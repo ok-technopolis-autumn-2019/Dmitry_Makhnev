@@ -2,7 +2,11 @@ import { todosModel } from '../models/todosModel';
 
 let idsCounter = 0;
 
-export function addTodoAction(todoData) {
+export interface TodoItemAddingData {
+  text: string;
+}
+
+export function addTodoAction(todoData: TodoItemAddingData) {
   todosModel.items.push({
     id: idsCounter++,
     text: todoData.text,

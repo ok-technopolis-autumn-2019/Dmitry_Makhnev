@@ -4,7 +4,10 @@ var path = require('path');
 
 
 module.exports = {
-  entry: './src/js/main.js',
+  entry: './src/js/main.tsx',
+
+  devtool: 'inline-source-map',
+
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'main.bundle.js'
@@ -29,6 +32,10 @@ module.exports = {
     }),
   ],
 
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
+
   module: {
     rules: [
       {
@@ -48,12 +55,19 @@ module.exports = {
           },
         ],
       },
+
+      // {
+      //   test: /\.m?js$/,
+      //   exclude: /(node_modules|bower_components)/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //   },
+      // },
+
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        },
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ]
   },
