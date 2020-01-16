@@ -1,4 +1,4 @@
-import { addTodoAction } from './addTodo.action';
+import { addTodoAction } from './todo/add/addTodo.action';
 import { cleanAllTodosAction } from './cleanAllTodos.action';
 import { todosModel } from '../models/todosModel';
 

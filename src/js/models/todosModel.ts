@@ -3,6 +3,7 @@ import { TodoItemsFilter } from './TodoItemsFilter';
 
 
 export interface TodoItemModel {
+  clientId?: number;
   id: number;
   text: string;
   isDone: boolean;
@@ -12,6 +13,12 @@ export class TodosModel {
 
   @observable
   filter: TodoItemsFilter = TodoItemsFilter.ALL;
+
+  @observable
+  isLoading: boolean = false;
+
+  @observable
+  error: string = null;
 
   @observable
   items: TodoItemModel[] = [];

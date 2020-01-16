@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TodoItemAddingData } from '../actions/addTodo.action';
+import { TodoItemAddingData } from '../actions/todo/add/addTodo.action';
 
 
 interface TodosAddComponentState {

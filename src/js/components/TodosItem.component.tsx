@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { changeTodoItemDoneStatusAction } from '../actions/changeTodoItemDoneStatus.action';
-import { removeTodoItemAction } from '../actions/removeTodoItem.action';
+import { removeTodoItemAction } from '../actions/todo/remove/removeTodoItem.action';
 import { TodoItemModel } from '../models/todosModel';
 
 

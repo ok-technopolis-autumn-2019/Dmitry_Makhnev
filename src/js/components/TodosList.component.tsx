@@ -13,7 +13,10 @@ export class TodosListComponent extends Component<TodosListComponentProps> {
   render() {
     return <div className="todos-list">
       { this.props.items.map(itemData =>
-        <TodosItemComponent key={ itemData.id } itemData={ itemData } />
+        <TodosItemComponent
+          key={ itemData.clientId ? `c_${itemData.clientId}` : itemData.id }
+          itemData={ itemData }
+        />
       ) }
     </div>;
   }
