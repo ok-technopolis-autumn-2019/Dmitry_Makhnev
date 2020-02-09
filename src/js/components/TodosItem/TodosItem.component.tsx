@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { changeTodoItemDoneStatusAction } from '../actions/changeTodoItemDoneStatus.action';
-import { removeTodoItemAction } from '../actions/todo/remove/removeTodoItem.action';
-import { TodoItemModel } from '../models/todosModel';
-
+import { changeTodoItemDoneStatusAction } from '../../actions/changeTodoItemDoneStatus.action';
+import { removeTodoItemAction } from '../../actions/todo/remove/removeTodoItem.action';
+import { TodoItemModel } from '../../models/todosModel';
+import {changeTodoItemTextStatusAction} from "../../actions/changeItemText.action";
+import * as style from './TodosItem.css';
 
 export class TodosItemComponent extends Component<{
   itemData: TodoItemModel,
@@ -17,6 +18,14 @@ export class TodosItemComponent extends Component<{
     );
   };
 
+  onTextChanged = (e: React.FormEvent) => {
+    const input = e.target as HTMLInputElement;
+    const text = input.value;
+    changeTodoItemTextStatusAction(
+        this.props.itemData.id,
+        text,
+    );
+  };
   onDelete = () => {
     removeTodoItemAction(this.props.itemData.id);
   };
@@ -24,7 +33,7 @@ export class TodosItemComponent extends Component<{
   render() {
     const itemData = this.props.itemData;
 
-    return <div className="todo-item">
+    return <div className= {style.todoItem}>
       <input
         type="checkbox"
         className="todo-item_checked"
@@ -35,6 +44,7 @@ export class TodosItemComponent extends Component<{
       <input
         className="todo-item_body"
         defaultValue={ itemData.text }
+        onChange={ this.onTextChanged }
         />
       <button
         className="todo-item_delete"
