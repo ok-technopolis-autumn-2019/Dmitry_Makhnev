@@ -1,6 +1,7 @@
 
 
 .todoItem {
-   padding: 2px;
-    border: 1px solid darkgray;
+    align-items: center;
+    padding: 2px;
+    border-bottom: 1px solid lightgray;
 }
