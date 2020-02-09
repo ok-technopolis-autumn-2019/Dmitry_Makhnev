@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { changeTodoItemDoneStatusAction } from '../actions/changeTodoItemDoneStatus.action';
+import { changeTodoItemText } from '../actions/changeTodoItemText.action';
 import { removeTodoItemAction } from '../actions/todo/remove/removeTodoItem.action';
 import { TodoItemModel } from '../models/todosModel';
 
@@ -14,6 +15,15 @@ export class TodosItemComponent extends Component<{
     changeTodoItemDoneStatusAction(
       this.props.itemData.id,
       isDone,
+    );
+  };
+
+  onTextChanged = (e: React.FormEvent) => {
+    const input = e.target as HTMLInputElement;
+    const text = input.value;
+    changeTodoItemText(
+      this.props.itemData.id,
+      text,
     );
   };
 
@@ -35,6 +45,7 @@ export class TodosItemComponent extends Component<{
       <input
         className="todo-item_body"
         defaultValue={ itemData.text }
+        onChange={ this.onTextChanged }
         />
       <button
         className="todo-item_delete"
