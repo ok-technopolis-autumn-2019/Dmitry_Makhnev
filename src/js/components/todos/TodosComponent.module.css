@@ -1,0 +1,10 @@
+.todo-app__content {
+  background: #FFFFFF;
+}
+.todo-app__content::after {
+  position: absolute;
+  height: 5px;
+  background: white;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  content: "";
+}

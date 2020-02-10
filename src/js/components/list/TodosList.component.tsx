@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { TodosItemComponent } from './TodosItem.component';
-import { TodoItemModel } from '../models/todosModel';
+import { TodosItemComponent } from '../item/TodosItem.component';
+import { TodoItemModel } from '../../models/todosModel';
+
+import style from './TodosListComponent.module.css'
 
 
 interface TodosListComponentProps {
@@ -11,14 +13,14 @@ interface TodosListComponentProps {
 export class TodosListComponent extends Component<TodosListComponentProps> {
 
   render() {
-    return <div className="todos-list">
+    return <ul className={ style.todosList }>
       { this.props.items.map(itemData =>
         <TodosItemComponent
           key={ itemData.clientId ? `c_${itemData.clientId}` : itemData.id }
           itemData={ itemData }
         />
       ) }
-    </div>;
+    </ul>;
   }
 
 }

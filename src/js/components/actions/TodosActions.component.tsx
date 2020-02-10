@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { TodoItemsFilter } from '../models/TodoItemsFilter';
-import { setTodosFilterAction } from '../actions/setTodosFilter.action';
-import { cleanAllTodosAction } from '../actions/cleanAllTodos.action';
-import { TodoItemModel } from '../models/todosModel';
+import { TodoItemsFilter } from '../../models/TodoItemsFilter';
+import { setTodosFilterAction } from '../../actions/setTodosFilter.action';
+import { cleanAllTodosAction } from '../../actions/cleanAllTodos.action';
+import { TodoItemModel } from '../../models/todosModel';
+
+import style from './TodosActionsComponent.module.css'
 
 const theBestTexts = {
   [TodoItemsFilter.ALL]: {
@@ -30,7 +32,7 @@ export class TodosActionsComponent extends Component<{
       filteredItems,
     } = this.props;
 
-    return <div className="todos-actions">
+    return <div className={style.content__actionsBar}>
 
       <div className="counter" id="todos-counter">
         {filteredItems.length}/{items.length}
