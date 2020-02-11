@@ -1,0 +1,9 @@
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.todos_list {
+  min-height: 295px;
+}

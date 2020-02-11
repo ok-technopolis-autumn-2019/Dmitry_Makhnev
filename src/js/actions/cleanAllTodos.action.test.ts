@@ -1,18 +1,20 @@
 import { addTodoAction } from './todo/add/addTodo.action';
-import { cleanAllTodosAction } from './cleanAllTodos.action';
+import { cleanCompletedTodos } from './cleanCompletedTodos';
 import { todosModel } from '../models/todosModel';
 
 
-describe(`cleanAllTodosAction`, () => {
+describe(`cleanCompletedTodosAction`, () => {
 
   describe(`base usage`, () => {
-    addTodoAction({ text: 'asd' });
-    cleanAllTodosAction();
+    addTodoAction({ text: 'not done' });
+    const doneItemPromise = addTodoAction({ text: 'is done' });
+    doneItemPromise.then(value => { value.isDone = true })
+    cleanCompletedTodos();
 
     const itemsCount = todosModel.items.length;
 
-    it(`all items were deleted`, () => {
-      expect(itemsCount).toBe(0);
+    it(`completed items were deleted`, () => {
+      expect(itemsCount).toBe(1);
     });
 
   });
