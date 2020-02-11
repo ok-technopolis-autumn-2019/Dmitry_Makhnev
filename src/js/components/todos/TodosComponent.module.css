@@ -1,7 +1,7 @@
-.todo-app__content {
+.todo_app__content {
   background: #FFFFFF;
 }
-.todo-app__content::after {
+.todo_app__content::after {
   position: absolute;
   height: 5px;
   background: white;

@@ -1,9 +1,9 @@
 import { todosModel } from '../models/todosModel';
 import httpService from "../services/httpService";
 
-export function cleanAllTodosAction() {
+export function cleanCompletedTodos() {
 
-  todosModel.items.forEach(value => {
+  todosModel.items.filter(value => value.isDone).forEach(value => {
         const id = value.id;
         httpService.request(
             'DELETE',

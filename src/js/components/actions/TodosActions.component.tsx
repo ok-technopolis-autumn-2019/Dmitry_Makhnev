@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TodoItemsFilter } from '../../models/TodoItemsFilter';
 import { setTodosFilterAction } from '../../actions/setTodosFilter.action';
-import { cleanAllTodosAction } from '../../actions/cleanAllTodos.action';
+import { cleanCompletedTodos } from '../../actions/cleanCompletedTodos';
 import { TodoItemModel } from '../../models/todosModel';
 
 import style from './TodosActionsComponent.module.css'
@@ -32,32 +32,52 @@ export class TodosActionsComponent extends Component<{
       filteredItems,
     } = this.props;
 
-    return <div className={style.content__actionsBar}>
+    return <section className={ style.content__actions_bar }>
 
-      <div className="counter" id="todos-counter">
-        {filteredItems.length}/{items.length}
+      <div className={style.actions_bar__item__task_counter} id="todos-counter">
+        {filteredItems.length}/{items.length} items left
       </div>
 
-      <div className="filter">
+      <div
+          className={ style.actions_bar__item__task_filter }
+          role="group"
+          aria-label="Filter tasks by status"
+      >
         { Object.values(TodoItemsFilter).map(filterValue =>
-          <button
-            key={ filterValue }
-            aria-label={`Todos filter: ${ theBestTexts[filterValue].aria }`}
-            onClick={ () => { setTodosFilterAction(filterValue) } }
-          >
-            { theBestTexts[filterValue].text }
-          </button>
+
+          <div>
+            <input
+              id={ `radio${filterValue}` }
+              className={ style.task_filter__item__input }
+              type="radio"
+              name="filter"
+            />
+            <label
+              htmlFor={ `radio${filterValue}` }
+              className={ style.task_filter__label }
+              key={ filterValue }
+              aria-label={`Todos filter: ${ theBestTexts[filterValue].aria }`}
+              onClick={ () => { setTodosFilterAction(filterValue) } }
+            >
+              <span
+                className={ style.task_filter__item__text }>
+                { theBestTexts[filterValue].text }
+              </span>
+            </label>
+          </div>
+
         ) }
       </div>
 
       <button
-        id="todos-clean-all"
-        aria-label="Clean all todos"
-        onClick={ cleanAllTodosAction }
+        className={ style.actions_bar__item__task_clear_completed }
+        id="todos-clean-completed"
+        aria-label="Clean completed todos"
+        onClick={ cleanCompletedTodos }
       >
-        Clean all
+        Clear completed
       </button>
-    </div>
+    </section>
   }
 
 }

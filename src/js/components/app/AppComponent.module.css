@@ -32,3 +32,13 @@ body {
   content: "";
   z-index: -2;
 }
+
+.header__h1 {
+  margin: 0;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+  font-size: 100px;
+  color: #CCCCCC;
+  line-height: 1;
+}

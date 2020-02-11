@@ -22,7 +22,7 @@ export class TodosComponent extends Component {
   }
 
   render() {
-    return <div className={ style.todoApp__content }>
+    return <main className={ style.todo_app__content }>
       {
         todosModel.error != null
           ? <div style={ {color: '#f00'} }>{ todosModel.error }</div>
@@ -46,7 +46,7 @@ export class TodosComponent extends Component {
           : <></>
       }
 
-    </div>
+    </main>
   }
 
 }

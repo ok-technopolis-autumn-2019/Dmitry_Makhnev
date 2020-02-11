@@ -13,14 +13,16 @@ interface TodosListComponentProps {
 export class TodosListComponent extends Component<TodosListComponentProps> {
 
   render() {
-    return <ul className={ style.todosList }>
-      { this.props.items.map(itemData =>
-        <TodosItemComponent
-          key={ itemData.clientId ? `c_${itemData.clientId}` : itemData.id }
-          itemData={ itemData }
-        />
-      ) }
-    </ul>;
+    return <section>
+      <ul className={ style.todos_list }>
+        { this.props.items.map(itemData =>
+          <TodosItemComponent
+            key={ itemData.clientId ? `c_${itemData.clientId}` : itemData.id }
+            itemData={ itemData }
+          />
+        ) }
+      </ul>
+    </section>
   }
 
 }

@@ -1,4 +1,4 @@
-.actions-bar__item__task-filter {
+.actions_bar__item__task_filter {
   display: flex;
   font-family: Roboto, sans-serif;
   font-weight: 300;
@@ -9,33 +9,33 @@
   color: #888888;
 }
 
-.task-filter__item__input {
+.task_filter__item__input {
   position: absolute;
   left: -99999px;
 }
-.task-filter__item__input:focus + .task-filter__label {
+.task_filter__item__input:focus + .task_filter__label {
   background-color: rgba(200, 200, 200, 0.2);
 }
-.task-filter__item__input:checked + .task-filter__label {
+.task_filter__item__input:checked + .task_filter__label {
   border-color: #EBDFDF;
 }
 
-.task-filter__label {
+.task_filter__label {
   flex-shrink: 0;
   background: #FFFFFF;
   border: 1px solid transparent;
   border-radius: 10%;
   padding: 3px 6px;
 }
-.task-filter__label ~ .task-filter__label {
+.task_filter__label ~ .task_filter__label {
   margin-left: 6px;
 }
 
-.task-filter__item__text {
+.task_filter__item__text {
   position: relative;
 }
 
-.actions-bar__item__task-clear-completed {
+.actions_bar__item__task_clear_completed {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   font-size: 14px;
@@ -45,7 +45,7 @@
   border: none;
 }
 
-.content__actions-bar {
+.content__actions_bar {
   display: flex;
   position: sticky;
   bottom: 0;
@@ -57,7 +57,7 @@
   padding: 3px 12px;
 }
 
-.actions-bar__item__task-counter {
+.actions_bar__item__task_counter {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   font-size: 14px;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TodoItemAddingData } from '../../actions/todo/add/addTodo.action';
 
+import style from './TodosAddComponent.module.css'
 
 interface TodosAddComponentState {
   todoText?: string;
@@ -44,8 +45,9 @@ export class TodosAddComponent extends Component<
 
   render() {
 
-    return <div className="todos-add">
+    return <section className={style.content__controls}>
       <form
+        className={ style.content__form }
         method="post"
         action="/"
         id="todos-add-form"
@@ -53,22 +55,24 @@ export class TodosAddComponent extends Component<
         onSubmit={ this.onSubmit }
       >
 
+        <button
+            className={ style.controls__select_all_button }
+            // type="submit"
+            aria-label="Add new todo"
+        />
+
         <input
           type="text"
-          placeholder="Add new todo"
+          className={style.controls__create_text_field}
+          placeholder="What needs to be done?"
           value={ this.state.todoText }
           onChange={ this.onInput }
         />
 
-        <button
-          type="submit"
-          aria-label="Add new todo"
-        >
-          { this.props.addButtonText }
-        </button>
+
 
       </form>
-    </div>
+    </section>
   }
 
 }

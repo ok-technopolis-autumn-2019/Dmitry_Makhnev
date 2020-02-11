@@ -36,24 +36,32 @@ export class TodosItemComponent extends Component<{
   render() {
     const itemData = this.props.itemData;
 
-    return <li className={ style.list__itemView }>
+    return <li className={ style.list__item_view }>
       <input
         type="checkbox"
-        className={style.itemView__checkbox}
+        id={ `checkbox${itemData.id}` }
+        className={style.item_view__checkbox}
         defaultChecked={ itemData.isDone }
         onChange={ this.onDoneChanged }
         aria-label={ `Mark todo as ${itemData.isDone ? 'unready' : 'ready'}` }
       />
+
+      <label
+          htmlFor={ `checkbox${itemData.id}` }
+          className={ style.item_view__checkbox_label }>
+        <span className={ style.item_view__checkbox_label__icon }/>
+      </label>
+
       <input
-        className="todo-item_body"
+        className={style.item_view__text}
         onChange={ this.onTextChanged }
         defaultValue={ itemData.text }
         />
       <button
-        className="todo-item_delete"
+        className={ style.item_view__delete_button }
         aria-label="Delete todo"
         onClick={ this.onDelete }
-      >×</button>
+      />
     </li>
   }
 

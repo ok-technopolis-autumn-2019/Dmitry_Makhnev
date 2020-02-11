@@ -1,0 +1,39 @@
+.content__controls {
+  display: flex;
+  height: 66px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E6E6E6;
+  box-shadow: inset 0 -1px 10px #E6E6E6;
+}
+
+.content__form {
+  display: flex;
+  flex-grow: 1;
+}
+
+.controls__select_all_button {
+  width: 60px;
+  height: 65px;
+  background-size: 30px 16px;
+  background: #FFFFFF url("../../../img/arrow_down.svg") no-repeat 17px 27px;
+  border: none;
+  flex-shrink: 0;
+}
+
+.controls__create_text_field {
+  flex-grow: 1;
+  font-family: Roboto, sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 21px;
+  border: none;
+  color: #666666;
+  padding-left: 2px;
+}
+.controls__create_text_field::-webkit-input-placeholder {
+  color: #CCCCCC;
+}
+.controls__create_text_field::-moz-placeholder {
+  color: #CCCCCC;
+}
